@@ -35,6 +35,11 @@ class BaseClass:
         return BaseModel() if new_model else BaseModel
 
     def get(self, **kwargs):
+        """
+        Получкение записи по ключу
+        :param kwargs: В data содержится ключ записи
+        :return: Запись или ошибку, если запись не найдена
+        """
         key = kwargs.get('data')
         query = self._session.query(self._get_model()).get(key)
 
