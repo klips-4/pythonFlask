@@ -3,6 +3,8 @@ from sqlalchemy import Column, Integer, DateTime
 from app import Model, engine
 from sqlalchemy.orm import declarative_mixin
 
+from typing import List
+
 
 @declarative_mixin
 class BaseModel(Model):

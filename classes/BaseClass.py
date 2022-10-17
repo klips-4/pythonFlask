@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from Model import BaseModel
 from app import engine
-import HttpResponse
+from helpers.HttpResponse import HttpResponse
 
 
 class BaseClass:
@@ -24,6 +24,15 @@ class BaseClass:
 
         if self._additional_methods:
             self._methods_map.update(self._additional_methods)
+
+    @property
+    def methods_map(self):
+        """
+        Получение доступных методов сущности
+
+         :return: Список методов сущности
+        """
+        return self._methods_map
 
     @staticmethod
     def _get_model(new_model: bool = False) -> BaseModel:
